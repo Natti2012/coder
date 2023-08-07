@@ -1,0 +1,66 @@
+body {
+    margin:0px;
+    height:100vh;
+    background: #1283da;
+  }
+
+#bodyRT{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+input[type=text], input[type=number]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+label[for=send]{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+#dynamicProducts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#productManager{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    background-color: rgba(245, 16, 16, 0.705);
+    width: 80px;
+    height: 30px;
+}
+ #admin-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+ a{
+    color: rgb(165, 11, 11);
+ }
+ a:hover{
+    background-color: rgba(137, 43, 226, 0.582);
+    border-radius: 5%;
+ }
+ h1{
+    color: brown;
+    text-shadow: black 0.1em 0.1em 0.2em
+ }
+
+ form{
+    width: 80%;
+ }
