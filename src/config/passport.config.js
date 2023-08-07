@@ -75,7 +75,7 @@ export function iniPassport() {
       {
         clientID: config.clientId,
         clientSecret: config.clientSecret,
-        callbackURL: 'http://localhost:8080/session/githubcallback',
+        callbackURL: 'https://coder-yr7y-dev.fl0.io/api/sessions/githubcallback',
       },
       async (accesToken, _, profile, done) => {
         try {
