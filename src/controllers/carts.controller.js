@@ -156,7 +156,7 @@ class CartController {
             // const user = req.body.email
             const newTicket = await cartService.purchase(cid, user)
             await cartService.updateProductsCart(cid, newTicket.prodOutStock )
-          
+          await  ticketService.updateStock(newTicket.prodStock)
             const newTk={
                 id: newTicket.ticket._id,
                 amount: newTicket.ticket.amount,

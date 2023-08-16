@@ -1,13 +1,14 @@
 console.log('hola')
 
-const existingCart = document.querySelector(".userCart").id;
-console.log(existingCart)
+const existingCart = document.querySelector(".userCart");
+
 const API_URL = "http://localhost:8080/api/carts"
 
 
 async function addProductToCart(id){
-    const url = API_URL + `/${existingCart}/product/${id}`
+    const url = API_URL + `/${existingCart?.id}/product/${id}`
     const data = {}
+    if(existingCart){
     const options = {
         method: "POST",
         headers:{
@@ -18,11 +19,14 @@ async function addProductToCart(id){
     fetch(url, options)
     .then((response)=> response.json())
     .then(()=>{
-        console.log('Product added successfully')
+        alert('Product added successfully')
     })
     .catch((error)=>{
         console.error("Error:", error)
     })
+}else{
+    alert('Login first to be  to add products to the cart')
+    }
 
 
 }

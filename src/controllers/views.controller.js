@@ -7,7 +7,7 @@ class ViewsController{
 
     async productsView(req, res){
         try {
-          const user = { firstName: req.session.user.firstName, lastName: req.session.user.lastName, email: req.session.user.email, rol: req.session.user.rol, cart: req.session.user.cart}
+          const user = { firstName: req.session.user?.firstName, lastName: req.session.user?.lastName, email: req.session.user?.email, rol: req.session.user?.rol, cart: req.session.user?.cart}
             const { page } = req.query;
             const query = await productService.getProductData(page);
             const { docs, ...rest } = query;
