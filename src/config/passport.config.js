@@ -15,6 +15,7 @@ export function iniPassport() {
     'login',
     new LocalStrategy({ usernameField: 'email' }, async (username, password, done) => {
       try {
+        
         const user = await UserModel.findOne({ email: username });
         if (!user) {
           console.log('User not found with email ' + username);

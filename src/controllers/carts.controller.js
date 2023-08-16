@@ -1,6 +1,9 @@
 import { cartService } from "../services/carts.service.js";
 import ProductService from "../services/products.service.js";
+import { TicketService } from "../services/tickets.service.js";
+const ticketService = new TicketService
 const productService = new ProductService
+
 
 
 
@@ -149,11 +152,17 @@ class CartController {
     async purchase(req, res) {
         try {
             const cid = req.params.cid
-            const user= req.session.user.email
-           // const user = req.body.email
-            const ticket = await cartService.purchase(cid, user)
-           
-            return res.status(200).render('purchased', { ticket })
+          const user= req.session.user.email
+            // const user = req.body.email
+            const newTicket = await cartService.purchase(cid, user)
+            await cartService.updateProductsCart(cid, newTicket.prodOutStock )
+          
+            const newTk={
+                id: newTicket.ticket._id,
+                amount: newTicket.ticket.amount,
+                purchaser:newTicket.ticket.purchaser
+            }
+            return res.status(200).render('purchased', { newTk })
 
         } catch (error) {
             return res.status(500).render('error', { error: error.message })

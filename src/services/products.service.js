@@ -96,8 +96,8 @@ export class ProductService {
             console.log(`The product with id: ${_id} was updated succesfully!`);
             return updatedProduct;
         } catch (error) {
-            console.log(error);
-            // throw new Error(error.message);
+          
+             throw new Error(error.message);
         }
     }
     async updateStockProduct(_id, product) {
@@ -108,8 +108,8 @@ export class ProductService {
             console.log(`The stock product with id: ${_id} was updated succesfully!`);
             return updatedProduct;
         } catch (error) {
-            console.log(error);
-            // throw new Error(error.message);
+          
+             throw new Error(error.message);
         }
     }
     async deleteProduct(_id) {
@@ -123,7 +123,7 @@ export class ProductService {
     }
     async getProductData(page){
         let customA = {}
-        let customB = { page: page || 1, limit: 3 }
+        let customB = { page: page || 1, limit: 8 }
         const query = await ProductMethods.paginate(customA, customB);
         return query
     }
